@@ -1,4 +1,4 @@
-git clone https://github.com/MerlinRdev/rtax89x
+git clone https://github.com/MerlinRdev/rax120
 cd rtax89x/tools
 tar jxvf openwrt-gcc463.arm.tar.bz2
 cd openwrt-gcc463.arm
