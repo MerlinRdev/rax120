@@ -14,8 +14,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston,
  * MA 02111-1307 USA
  *
- * Copyright 2019-2020, paldier <paldier@hotmail.com>.
- * Copyright 2019-2020, lostlonger<lostlonger.g@gmail.com>.
+ * Copyright 2019-2021, paldier <paldier@hotmail.com>.
+ * Copyright 2019-2021, lostlonger<lostlonger.g@gmail.com>.
  * All Rights Reserved.
  * 
  *
@@ -154,10 +154,10 @@ void merlinr_init_done()
 		nvram_set("modelname", "EA6700");
 #elif defined(R8000P) || defined(R7900P)
 		nvram_set("modelname", "R8000P");
-#elif defined(RAX20)
-		nvram_set("modelname", "RAX20");
 #elif defined(RAX80)
 		nvram_set("modelname", "RAX80");
+#elif defined(RAX120)
+		nvram_set("modelname", "RAX120");
 #elif defined(RAX200)
 		nvram_set("modelname", "RAX200");
 #elif defined(BLUECAVE)
@@ -443,10 +443,8 @@ int merlinr_firmware_check_update_main(int argc, char *argv[])
 						nvram_set("webs_state_url", "");
 #if (defined(RTAC82U) && !defined(RTCONFIG_AMAS)) || defined(RTAC3200) || defined(RTAC85P) || defined(RMAC2100)
 						snprintf(info,sizeof(info),"3004_382_%s_%s-%s",modelname,fwver,tag);
-#elif (defined(RTAC82U) && defined(RTCONFIG_AMAS)) || defined(RTAC95U) || defined(RTAX56_XD4) || defined(RTAX95Q) || defined(RTAX89U)
+#elif (defined(RTAC82U) && defined(RTCONFIG_AMAS)) || defined(RTAC95U) || defined(RTAX56_XD4) || defined(RTAX95Q) || defined(RTAX89U) ||  defined(RTAC68U) || defined(RTAC3100) || defined(RTAC88U)
 						snprintf(info,sizeof(info),"3004_386_%s_%s-%s",modelname,fwver,tag);
-#elif defined(RTAC68U) || defined(RTAC3100) || defined(RTAC88U)
-						snprintf(info,sizeof(info),"3004_385_%s_%s-%s",modelname,fwver,tag);
 #else
 						snprintf(info,sizeof(info),"3004_384_%s_%s-%s",modelname,fwver,tag);
 #endif
@@ -500,10 +498,8 @@ int merlinr_firmware_check_update_main(int argc, char *argv[])
 GODONE:
 #if (defined(RTAC82U) && !defined(RTCONFIG_AMAS)) || defined(RTAC3200) || defined(RTAC85P) || defined(RMAC2100)
 	snprintf(info,sizeof(info),"3004_382_%s",nvram_get("extendno"));
-#elif (defined(RTAC82U) && defined(RTCONFIG_AMAS)) || defined(RTAC95U) || defined(RTAX56_XD4) || defined(RTAX95Q) || defined(RTAX89U)
+#elif (defined(RTAC82U) && defined(RTCONFIG_AMAS)) || defined(RTAC95U) || defined(RTAX56_XD4) || defined(RTAX95Q) || defined(RTAX89U) ||  defined(RTAC68U) || defined(RTAC3100) || defined(RTAC88U)
 	snprintf(info,sizeof(info),"3004_386_%s",nvram_get("extendno"));
-#elif defined(RTAC68U) || defined(RTAC3100) || defined(RTAC88U)
-	snprintf(info,sizeof(info),"3004_385_%s",nvram_get("extendno"));
 #else
 	snprintf(info,sizeof(info),"3004_384_%s",nvram_get("extendno"));
 #endif

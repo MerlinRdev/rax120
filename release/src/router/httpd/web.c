@@ -12344,7 +12344,7 @@ do_upgrade_post(char *url, FILE *stream, int len, char *boundary)
 	int count, cnt;
 	long filelen;
 	int offset;
-#if defined(K3) || defined(K3C) || defined(SBRAC1900P) || defined(SBRAC3200P) || defined(R8000P) || defined(R7900P) || defined(RAX20) || defined(XWR3100) || defined(R7000P)
+#if defined(K3) || defined(K3C) || defined(SBRAC1900P) || defined(SBRAC3200P) || defined(R8000P) || defined(R7900P) || defined(RAX120) || defined(XWR3100) || defined(R7000P)
 	int checkname=0;
 #endif
 #ifndef RTCONFIG_SMALL_FW_UPDATE
@@ -12403,14 +12403,14 @@ do_upgrade_post(char *url, FILE *stream, int len, char *boundary)
 #elif defined(R7000P)
 		if (strstr(buf, "R7000P"))
 			checkname=1;
-#elif  defined(RAX20)
-		if (strstr(buf, "RAX20"))
+#elif  defined(RAX120)
+		if (strstr(buf, "RAX120"))
 			checkname=1;
 #endif
 		if (!strncasecmp(buf, "Content-Disposition:", 20) && strstr(buf, "name=\"file\""))
 			break;
 	}
-#if defined(K3) || defined(K3C) || defined(SBRAC1900P) || defined(SBRAC3200P) || defined(R8000P) || defined(R7900P) || defined(RAX20) || defined(XWR3100) || defined(R7000P)
+#if defined(K3) || defined(K3C) || defined(SBRAC1900P) || defined(SBRAC3200P) || defined(R8000P) || defined(R7900P) || defined(RAX120) || defined(XWR3100) || defined(R7000P)
 	if(checkname==0)
 		goto err;
 #endif
